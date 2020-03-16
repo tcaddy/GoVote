@@ -1,0 +1,13 @@
+setup:
+  addons:
+  - plan: heroku-postgresql
+    as: DATABASE
+build:
+  docker:
+    web: client/Dockerfile
+    worker: server/Dockerfile
+  config:
+    NODE_ENV: production
+    DB_TABLE: GuilfordVoters
+run:
+  web: npm start
